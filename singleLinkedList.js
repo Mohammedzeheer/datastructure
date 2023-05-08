@@ -31,7 +31,7 @@ class linkedlist {
 
         /// INSERT VALUE BEFORE ANY VALUE ------
      insertBefore(value, newvalue) {
-        const newNode = new node(newvalue)
+        const newNode = new Node(newvalue)
         let currentNode = this.head
 
         if (currentNode.value == value) {
@@ -51,15 +51,17 @@ class linkedlist {
  
      //INSERT VALUE AFTER USER ENTERED VALUE------
     insertAfter(value, newvalue) {
-        const newNode = new node(newvalue)
+        const newNode = new Node(newvalue)
         let currentNode = this.head
         while (currentNode) {
             if (currentNode.value == value) {
-                newNode.next = currentNode.next
-                currentNode.next = newNode
                 if (!currentNode.next) {
+                    currentNode.next=newNode
                     this.tail = currentNode
+                    return
                 }
+                newNode.next = currentNode.next
+                currentNode.next = newNode              
                 return
             }
             currentNode = currentNode.next
@@ -68,8 +70,9 @@ class linkedlist {
     }
 
 
+
        ///REMOVE VALUE FROM LINKED LIST 
-    remove(value){
+    remove(value){      
         if(!this.head)return;
     
         if(this.head.value==value){
@@ -98,7 +101,6 @@ class linkedlist {
             console.log(currentNode.value);
             currentNode=currentNode.next
         }
-
     }
 }
 
@@ -107,7 +109,8 @@ const list=new linkedlist()
 list.add(10)
 list.add(20)
 list.add(30)
-// list.insertAfter(10, 34)
+list.remove(20)
+list.insertAfter(10, 34)
 list.insertBefore(30, 34)
 list.print()
 
