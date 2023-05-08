@@ -23,3 +23,26 @@
   const target = 23;
 
   console.log("Binary Search:", binarySearch(arr, target));
+
+
+  // /my code
+  const arra=[2,4,6,7,8,9]
+let start=0
+let end=arra.length-1
+const find= 7
+
+while(start<=end){
+ let mid= Math.floor(start+(end-start)/2)
+  if(arra[mid]==find)
+  {
+    // return mid
+    console.log(mid)
+  }
+  if (arra[mid]<find)
+  {
+      start=mid+1
+   
+  }else{
+      end=mid-1
+  }
+} 
