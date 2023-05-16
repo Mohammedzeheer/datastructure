@@ -22,10 +22,17 @@ function capitalizeFirstAndLastLetter(str) {
 
 
 
-  // Testing ----------------------------------------------------
+  // find middle string  ----------------------------------------------------
+function findmiddleString(str){
+    if(str==null){
+        return null      
+    }
+    let mid= Math.floor(str.length/2)
+    return str[mid]
+}
+
+console.log(findmiddleString("zeheer"))
 
 
 
-
-
-
+ // find middle string  ----------------------------------------------------

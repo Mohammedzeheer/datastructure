@@ -29,7 +29,17 @@
     }
     // return -1
   } 
-
-
   var result=linearsearch(array,find)
   console.log(linearsearch(array,find))
+
+
+  ////-------------------  linear search in recursion  ---------------------------
+
+  function lnearsearc(array,find,index){
+    if (array[index]==find){
+      return index
+    }
+    return lnearsearc(array, find, index + 1);
+  }
+
+  console.log(lnearsearc(array,find,0))

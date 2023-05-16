@@ -29,6 +29,15 @@ class linkedlist {
         this.tail=newNode
      }
 
+     addHead(value){
+        const newNode=new Node(value)
+        if(this.head){
+         newNode.next=this.head
+         this.head=newNode
+        }
+     }
+
+
       //--- INSERT VALUE BEFORE ANY VALUE  ------
      insertBefore(value, newvalue) {
         const newNode = new Node(newvalue)
@@ -38,6 +47,7 @@ class linkedlist {
             newNode.next = currentNode
             this.head = newNode
             return
+
         }
         while (currentNode.next) {
             if (currentNode.next.value == value) {
@@ -70,18 +80,18 @@ class linkedlist {
         console.log("not found")
     }
 
-    middle(){
-        let mid=this.head
-        let temp=this.head
-        while(temp && temp.next){
-          mid=mid.next
-          temp=temp.next.next
+    middle() {
+        let mid = this.head
+        let temp = this.head
+        while (temp && temp.next) {
+            mid = mid.next
+            temp = temp.next.next
         }
         console.log(mid.value)
-      }
+    }
 
 
-      total() {
+    total() {
         let currentNode = this.head
         let sum = 0;
         while (currentNode) {
@@ -136,16 +146,19 @@ function arrayToLinkedList(array){
 
 
 const list=new linkedlist()
-arrayToLinkedList(array)
+// arrayToLinkedList(array)
 list.add(10)
 list.add(20)
 list.add(30)
-list.remove(20)
-list.insertAfter(10, 34)
-list.insertBefore(30, 34)
-list.total()
-console.log("middle" ,list.middle()); 
+list.remove(30)
+list.addHead(5)
+// list.insertAfter(10, 34)
+// list.insertBefore(30, 34)
+// list.total()
+
 list.print()
+console.log("----------------------")
+list.middle()
 
 
 
