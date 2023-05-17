@@ -1,78 +1,78 @@
 class Stack {
-    constructor() {
-      this.stack = [];
-      this.array=[];
-      this.str1=[]
-      this.str2=[]
+  constructor() {
+    this.stack = [];
+    this.array = [];
+    this.str1 = []
+    this.str2 = []
+  }
+
+  isEmpty() {
+    return this.stack.length === 0;
+  }
+
+  push(item) {
+    this.stack.push(item);
+  }
+
+  pop() {
+    if (this.isEmpty()) {
+      return "Stack is empty";
     }
-  
-    isEmpty() {
-      return this.stack.length === 0;
+    return this.stack.pop();
+  }
+
+  peek() {
+    if (this.isEmpty()) {
+      return "Stack is empty";
     }
-  
-    push(item) {
-      this.stack.push(item);
+    return this.stack[this.stack.length - 1];
+  }
+
+  display() {
+    console.log(this.stack)
+  }
+
+  undo() {
+    this.array.push(this.stack.pop())
+  }
+
+  redo() {
+    this.stack.push(this.array.pop())
+  }
+
+  addString(data) {
+    this.str1.push(data)
+  }
+
+  printString() {
+    console.log(this.str1);
+  }
+
+  reverseString() {
+    while (this.str1.length > 0) {
+      this.str2.push(this.str1.pop())
     }
-  
-    pop() {
-      if (this.isEmpty()) {
-        return "Stack is empty";
-      }
-      return this.stack.pop();
-    }
-  
-    peek() {
-      if (this.isEmpty()) {
-        return "Stack is empty";
-      }
-      return this.stack[this.stack.length - 1];
-    }
+    let str = this.str2.join('')
+    console.log(str);
+  }
 
-    display(){
-            console.log(this.stack)
-    }
 
-    undo(){
-       this.array.push(this.stack.pop())
-      }
+}
+// Example usage
+const stackl = new Stack();
 
-      redo(){
-        this.stack.push(this.array.pop())
-      }
-
-       addString(data){
-        this.str1.push(data)
-       }
-
-       printString(){
-        console.log(this.str1); 
-       }
-
-       reverseString(){
-         while(this.str1.length>0){
-          this.str2.push(this.str1.pop())
-         }
-         let str=this.str2.join('')
-         console.log(str);
-       }
-       
-
- }
-  // Example usage
-  const stackl = new Stack();
-  
-  stackl.push(10);
-  stackl.push(20);
-  stackl.push(30);
-  stackl.display();
+stackl.push(10);
+stackl.push(20);
+stackl.push(30);
+stackl.display();
 //   console.log(stackl.peek());  // Output: 30
-  
-  console.log(stackl.pop());
-  stackl.display();   // Output: 30
-  stackl.undo()
-  stackl.display();
-  stackl.redo()
-  stackl.display();
+
+console.log(stackl.pop());
+stackl.display();   // Output: 30
+stackl.undo()
+stackl.display();
+stackl.redo()
+stackl.display();
 //   console.log(stackl.pop());   // Output: 20
 //   console.log(stackl.pop());   // Output: 10
 //   console.log(stackl.pop());   // Output: Stack is empty

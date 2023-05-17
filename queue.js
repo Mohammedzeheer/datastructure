@@ -57,8 +57,4 @@ myQueue.enqueue(4)
 myQueue.display()
 console.log("-------------------");
 myQueue.dequeue()
-
-
-myQueue.display()
-
 myQueue.display()
