@@ -1,3 +1,96 @@
+// function partition(array, start, end) {
+//   const pivotValue = array[start];
+//   let  pivotIndex = start + 1;
+
+//   for (let i = start + 1; i < end; i++) {
+//     if (array[i] < pivotValue) {
+//       [array[i], array[pivotIndex]] = [array[pivotIndex], array[i]];
+//       pivotIndex++;
+//      console.log(array); 
+//     }
+//   }
+//   [array[start], array[pivotIndex - 1]] = [array[pivotIndex - 1], array[start]];
+//   return pivotIndex - 1;
+// }
+
+// function quickSort(array, start = 0, end = array.length) {
+//   if (start >= end) {
+//     return array;
+//   }
+//   const pivotIndex = partition(array, start, end);
+//   quickSort(array, start, pivotIndex);
+//   quickSort(array, pivotIndex + 1, end);
+//   return array;
+// }
+
+
+// const array =[23,12,56,78,54,32,14,90]
+// console.log(quickSort(array,0,array.length-1))
+
+
+
+function quickSort(arr){
+  if(arr.length<2){
+      return arr
+  }
+
+  let pivot=arr[arr.length-1]
+  let left=[]
+  let right=[]
+
+  for(let i=0;i<arr.length-1;i++){
+      if(arr[i]<pivot){
+          left.push(arr[i])
+      }else{
+          right.push(arr[i])
+      }
+  }
+
+  return [...quickSort(left),pivot,...quickSort(right)]
+}
+
+const arr=[789,4,6,-1,-3]
+const sorted=quickSort(arr)
+console.log(sorted)
+
+
+
+
+
+
+
+
+
+
+//quick sort
+// function partition (array, start, end) {
+//     const pivotValue = array[start]; // first element as pivot
+//     const pivotIndex = start;
+//     let storeIndex = start + 1;
+//   for(let i = start + 1; i < end; i++) {
+//       if (array[i] < pivotValue) {
+//         [array[storeIndex], array[i]] = [array[i], array[storeIndex]];
+//         storeIndex++;
+//       }
+//     }
+//     [array[pivotIndex], array[storeIndex - 1]] = [array[storeIndex - 1], array[pivotIndex]];
+//     return storeIndex - 1;
+//   }
+//   function quickSort(array, start, end) {
+//     if (start >= end) { 
+//       return array;
+//     }
+//     // get pivot/partition index
+//     pivotIndex = partition(array, start, end);
+//     quickSort(array, start, pivotIndex); // left array
+//     quickSort(array, pivotIndex + 1, end); // right array
+//     return array;
+//   }
+
+
+
+
+
 // function partition (array, start, end) {
 //   const pivotValue = array[start]; // first element as pivot
 //   const i = start;
@@ -22,33 +115,6 @@
 //   quickSort(array, i + 1, end); // right array
 //   return array;
 // }
-
-//quick sort
-function partition (array, start, end) {
-    const pivotValue = array[start]; // first element as pivot
-    const pivotIndex = start;
-    let storeIndex = start + 1;
-  for(let i = start + 1; i < end; i++) {
-      if (array[i] < pivotValue) {
-        [array[storeIndex], array[i]] = [array[i], array[storeIndex]];
-        storeIndex++;
-      }
-    }
-    [array[pivotIndex], array[storeIndex - 1]] = [array[storeIndex - 1], array[pivotIndex]];
-    return storeIndex - 1;
-  }
-  function quickSort(array, start, end) {
-    if (start >= end) { 
-      return array;
-    }
-    // get pivot/partition index
-    pivotIndex = partition(array, start, end);
-    quickSort(array, start, pivotIndex); // left array
-    quickSort(array, pivotIndex + 1, end); // right array
-    return array;
-  }
-
-
 
 
 
