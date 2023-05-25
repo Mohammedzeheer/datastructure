@@ -164,6 +164,7 @@ stackl.reverseString()
   //     }
   //     this.size++
   //   }
+
   //   pop(){
   //     if(this.top){
   //       this.top=this.top.next
@@ -192,8 +193,7 @@ stackl.reverseString()
   //     if(temp.data>big)
   //     big=temp.data
   //     else if(temp.data>second )
-  //     second=temp.data
-      
+  //     second=temp.data    
   //     temp=temp.next
   //   }
      
