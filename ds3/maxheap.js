@@ -1,5 +1,4 @@
-
-class minheap{
+class maxheap{
     constructor(){
         this.heap=[]
     }
@@ -31,7 +30,7 @@ class minheap{
 
      heapup(i){
         let parent=this.parents(this.size())
-        while(i>=0&&this.heap[i]<this.heap[parent]){
+        while(i>=0&&this.heap[i]>this.heap[parent]){
             this.swap(i,parent)
             i=parent
             parent=this.parents(i)
@@ -51,22 +50,8 @@ class minheap{
         }
     }
 
-     peek(){
-        return this.heap[this.size()]
-     }
-     
-    large(){
-        let large=this.heap[0]
-        for(let i=0;i<this.size();i++){
-            if(this.heap[i]>large){
-                large=this.heap[i]
-            }
-        }     
-        return large
-     }
-
     shiftdown(i){
-        let  size=this.size()
+       let size=this.size()
         let left=this.leftchild(i)
         let right=this.rightchild(i)
         let smallest
@@ -87,16 +72,11 @@ class minheap{
 
 }
 
-let heap=new minheap()
+let heap=new maxheap()
 // let array=[12,32,43,5,1,8]
 // heap.heapbuild(array)
 heap.insert(34)
-heap.insert(78)
 heap.insert(32)
-
-// heap.delete(34)
-console.log(heap.peek());
-console.log(`large elements in heap  ${heap.large()}`);
-console.log("large", heap.large());
-
-
+heap.insert(78)
+heap.insert(89)
+console.log(heap);

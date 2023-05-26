@@ -130,10 +130,9 @@ class Graph {
 
     while (queue.length > 0) {
       const currentVertex = queue.shift();
-      const adjacentVertices = this.adjList.get(currentVertex);
-
       console.log(currentVertex);
-
+      
+      const adjacentVertices = this.adjList.get(currentVertex);
       for (const neighbor of adjacentVertices) {
         if (!visited.has(neighbor)) {
           visited.add(neighbor);
@@ -183,6 +182,12 @@ class Graph {
       }
     }
   }
+
+  //   print(){
+//     for(const [vertex,edge] of this.adjlist){
+//       console.log(vertex, '->', edge.join(', '));
+//     }
+//   }
   
 }
 

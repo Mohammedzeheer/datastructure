@@ -153,19 +153,32 @@ class BinarySearchTree {
   }
 
 
-  isBst(){
-    return this.isBstHelper(this.root,0,Infinity)
-}
-isBstHelper(root,min,max){
-    if(root==null)
-    return true
-    
-    if(root.value<min || root.value>max){
+  isBst() {
+    return this.isBstHelper(this.root, 0, Infinity)
+  }
+  isBstHelper(root, min, max) {
+    if (root == null)
+      return true
+
+    if (root.value < min || root.value > max) {
       return false
     }
-    return (this.isBstHelper(root.left,min,root.value-1)&& 
-    this.isBstHelper(root.right,root.value+1,max))
-}
+    return (this.isBstHelper(root.left, min, root.value - 1) &&
+      this.isBstHelper(root.right, root.value + 1, max))
+  }
+
+   findMinimumValue(root) {
+    if (root === null) {
+      return null;
+    }
+  
+    let current = root;
+    while (current.left !== null) {
+      current = current.left;
+    }
+  
+    return current.value;
+  }
 
 }
 
@@ -181,6 +194,7 @@ bst.insert(4);
 bst.insert(7);
 bst.insert(13);
 
+console.log(bst.isbst());
 // Perform Traversals
 console.log("Post-order Traversal:");
 bst.postOrderTraversal(); // Output: 4, 7, 6, 1, 3, 13, 14, 10, 8
