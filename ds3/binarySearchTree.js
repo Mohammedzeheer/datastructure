@@ -180,6 +180,15 @@ class BinarySearchTree {
     return current.value;
   }
 
+
+  minimum(){
+    let curr=this.root
+    while(curr.left!=null){
+      curr=curr.left
+    }
+    return curr.value
+  }
+
 }
 
 // Workout 1 - Create a Binary Search Tree
@@ -194,7 +203,8 @@ bst.insert(4);
 bst.insert(7);
 bst.insert(13);
 
-console.log(bst.isbst());
+// console.log(bst.isBst());
+console.log(bst.minimum());
 // Perform Traversals
 console.log("Post-order Traversal:");
 bst.postOrderTraversal(); // Output: 4, 7, 6, 1, 3, 13, 14, 10, 8

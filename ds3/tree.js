@@ -116,5 +116,8 @@ class tree{
 
 let root=new tree(1)
 root.addchild(23)
+root.addchild(24)
+root.addchild(25)
+root.addchild(26)
 console.log(root);
 
