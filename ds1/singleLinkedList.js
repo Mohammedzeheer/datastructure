@@ -90,7 +90,20 @@ class linkedlist {
         console.log(mid.value)
     }
 
+reverse() {
+    let prev = null;
+    let next = null;
+    let curr = this.head;
+    while (curr) {
+      next = curr.next;
+      curr.next = prev;
+      prev = curr;
+      curr = next;
+    }
+    this.head = prev;
+  }
 
+    
     total() {
         let currentNode = this.head
         let sum = 0;
